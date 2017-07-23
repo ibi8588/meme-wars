@@ -1,4 +1,4 @@
-class MemeController < ApplicationController
+class MemesController < ApplicationController
   def index
     @meme = Meme.all
   end
