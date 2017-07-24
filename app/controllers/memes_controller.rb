@@ -19,6 +19,9 @@ class MemesController < ApplicationController
     @meme.delete
     redirect_to root_path
   end
+  def edit
+    @meme = Meme.find(params[:id])
+  end
   private
   def meme_params
     params.require(:meme).permit(:title, :image)
