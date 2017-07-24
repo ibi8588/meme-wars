@@ -1,0 +1,5 @@
+<%= form_for @meme do |form| %>
+Title: <%= form.text_area :title%> <br>
+Image: <%= form.file_field :image %> <br>
+<%= form.submit "Post Meme" %>
+<% end %>
