@@ -1,1 +1,7 @@
 <h1><%= @user.username %></h1>
+
+<%= @user.memes.each do |meme| %>
+  <p> <%= meme.title %></p>
+  <div><%= image_tag src=meme.image %></div>
+  <div><%= link_to("View Meme", meme_path(meme)) %> </div>
+<% end %>
