@@ -9,6 +9,7 @@
 <body>
   <div id="header">
     <% if signed_in? -%>
+    <%= link_to "Profile", user_path(current_user)%>
       <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
       <p><%= current_user.username %></p>
     <% else -%>
