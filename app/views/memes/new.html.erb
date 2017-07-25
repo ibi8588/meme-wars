@@ -3,5 +3,6 @@
 <%= form_for @meme do |form| %>
 Title: <%= form.text_area :title%> <br>
 Image: <%= form.file_field :image %> <br>
+<%= form.hidden_field :user_id, :value => "#{current_user.id}" %>
 <%= form.submit "Post Meme" %>
 <% end %>
