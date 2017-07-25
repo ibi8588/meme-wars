@@ -25,6 +25,11 @@ class Clearance::UsersController < Clearance::BaseController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    render template: "users/show"
+  end
+
   private
 
   def redirect_signed_in_users
