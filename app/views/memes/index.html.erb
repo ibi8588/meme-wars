@@ -2,5 +2,4 @@
   <p> <%= meme.title %></p>
   <div><%= image_tag src=meme.image %></div>
   <div><%= link_to("View Meme", meme_path(meme)) %> </div>
-  <div><%= link_to("Delete", "/memes/#{meme.id}", method: :delete, class: "delete_button") %></div>
   <% end %>

@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>MemeWars</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>MemeWars</title>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <div id="header">
+    <% if signed_in? -%>
+      <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
+      <p><%= current_user.username %></p>
+    <% else -%>
+      <%= link_to t(".sign_in"), sign_in_path %>
+      <%= link_to t(".sign_up"), sign_up_path %>
+    <% end -%>
+  </div>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <div id="flash">
+    <% flash.each do |key, value| -%>
+      <div id="flash_<%= key %>"><%=h value %></div>
+    <% end %>
+  </div>
+      <nav>
+         <ul>
+           <li> <%= link_to "Home" , root_path %> </li>
+           <li> <%= link_to "Memes", memes_path %> </li>
+           <li> <%= link_to "Post", new_meme_path %> </li>
+         </ul>
+       </nav>
 
-  <body>
-    <nav>
-      <ul>
-        <li> <%= link_to "Home" , root_path %> </li>
-        <li> <%= link_to "Memes", memes_path %> </li>
-      </ul>
-    </nav>
-    <%= yield %>
-  </body>
+  <%= yield %>
+</body>
 </html>
