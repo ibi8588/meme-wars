@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Memewars0</title>
+    <title>MemeWars</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <nav>
+      <ul>
+        <li> <%= link_to "Home" , root_path %> </li>
+        <li> <%= link_to "Memes", memes_path %> </li>
+      </ul>
+    </nav>
     <%= yield %>
   </body>
 </html>
