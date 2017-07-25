@@ -9,12 +9,20 @@ class MemesController < ApplicationController
 
   def new
     @meme = Meme.new
+    if signed_out?
+      redirect_to sign_up_path
+    end
   end
 
   def create
     @meme = Meme.new(meme_params)
-    @meme.save
+    if @meme.save
       redirect_to @meme
+    else
+      @meme = Meme.create
+      flash[:error] = "Your submission could not be sent. Please try again."
+      redirect_to new_meme_path
+    end
   end
 
   def destroy

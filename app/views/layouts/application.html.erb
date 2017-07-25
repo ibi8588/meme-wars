@@ -20,8 +20,8 @@
             <li><%= button_to t(".sign_out"), sign_out_path, method: :delete, class: "waves-effect waves-light btn-flat"%></li>
             <li><%= current_user.username %></li>
           <% else -%>
-            <%= link_to t(".sign_in"), sign_in_path %>
-            <%= link_to t(".sign_up"), sign_up_path %>
+            <li><%= link_to t(".sign_in"), sign_in_path %></li>
+            <li><%= link_to t(".sign_up"), sign_up_path %></li>
           <% end -%>
         </ul>
       </div>
