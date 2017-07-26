@@ -33,6 +33,7 @@ gem 'clearance'
 gem "paperclip", "~> 5.0.0"
 gem 'materialize-sass'
 gem 'jquery-rails'
+gem "figaro"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
