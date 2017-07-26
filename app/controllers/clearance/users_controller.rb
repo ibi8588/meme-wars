@@ -18,6 +18,7 @@ class Clearance::UsersController < Clearance::BaseController
     @user = user_from_params
 
     if @user.save
+      UserMailer.welcome_email(@user).deliver_now
       sign_in @user
       redirect_back_or url_after_create
     else
