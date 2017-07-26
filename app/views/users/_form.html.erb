@@ -1,14 +1,32 @@
-<div class="text-field">
-  <%= form.label :email %>
-  <%= form.text_field :email, type: 'email' %>
+<div class="row">
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s6">
+        <%= form.label :username %>
+        <%= form.text_field :username, type: 'username', placeholder: "Username" %>
+      </div>
+    </div>
+  </form>
 </div>
 
-<div class="text_field">
-  <%= form.label :username %>
-  <%= form.text_field :username, type: 'username' %>
+<div class="row">
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s6">
+        <%= form.label :email %>
+        <%= form.text_field :email, type: 'email', placeholder: "Email" %>
+      </div>
+    </div>
+  </form>
 </div>
 
-<div class="password-field">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
+<div class="row">
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s6">
+      <%= form.label :password %>
+      <%= form.password_field :password %>
+      </div>
+    </div>
+  </form>
 </div>
