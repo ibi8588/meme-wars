@@ -11,6 +11,9 @@
               <div class="card-action">
                 <%= link_to("View Meme", meme_path(meme)) %>
               </div>
+              <div class="card-action">
+                <%= link_to( meme.user.username, user_path(meme.user)) %>
+              </div>
             </div>
           </div>
         </div>
