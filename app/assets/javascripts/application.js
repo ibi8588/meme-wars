@@ -11,11 +11,10 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
 //= require materialize-sprockets
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-$( document ).ready(function() {
-  $(".hide-on-med-and-down").dropdown();
+$( document ).on('turbolinks:load', function() {
+  $(".button-collapse").sideNav();
 });

@@ -12,9 +12,22 @@
                 <%= link_to("View Meme", meme_path(meme)) %>
               </div>
               <div class="card-action">
-                <%= link_to( meme.user.username, user_path(meme.user)) %>
+              Posted by  <%= link_to( meme.user.username, user_path(meme.user)) %>
+              </div>
+              <% unless current_user.favorite_memes.exists?(meme.id) %>
+                <div class="card-action">
+                <%= link_to( "Add to Favorites", favorite_memes_path(meme_id: meme.id), method: :post) %>
+                </div>
+              <% else %>
+                <div class="card-action">
+                <%= link_to( "Remove from Favorites", favorite_memes_path(meme_id: meme.id), method: :delete) %>
+                </div>
+              <% end %>
+              <div class="card-action">
+                Posted at <%= meme.created_at.strftime('%c') %>
               </div>
             </div>
           </div>
         </div>
 <% end %>
+<%= will_paginate @meme %>

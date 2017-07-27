@@ -1,6 +1,6 @@
 class MemesController < ApplicationController
   def index
-    @meme = Meme.all
+    @meme = Meme.all.paginate(:page => params[:page], :per_page => 10).order('created_at DESC')
   end
 
   def show

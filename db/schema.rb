@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170725174040) do
+ActiveRecord::Schema.define(version: 20170727002010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "favorited_type"
+    t.bigint "favorited_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["favorited_type", "favorited_id"], name: "index_favorites_on_favorited_type_and_favorited_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
 
   create_table "memes", force: :cascade do |t|
     t.string "title"
@@ -39,5 +49,6 @@ ActiveRecord::Schema.define(version: 20170725174040) do
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
+  add_foreign_key "favorites", "users"
   add_foreign_key "memes", "users"
 end
