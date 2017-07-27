@@ -14,6 +14,9 @@
               <div class="card-action">
                 <%= link_to( meme.user.username, user_path(meme.user)) %>
               </div>
+              <div class="card-action">
+                Posted at <%= meme.created_at.strftime('%c') %>
+              </div>
             </div>
           </div>
         </div>
