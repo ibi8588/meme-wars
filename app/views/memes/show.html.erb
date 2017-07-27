@@ -11,14 +11,16 @@
         <div class="card-action">
           Posted by  <%= link_to( @meme.user.username, user_path(@meme.user)) %>
         </div>
-        <% unless current_user.favorite_memes.exists?(@meme.id) %>
-          <div class="card-action">
-          <%= link_to( "Add to Favorites", favorite_memes_path(meme_id: @meme.id), method: :post) %>
-          </div>
-        <% else %>
-          <div class="card-action">
-          <%= link_to( "Remove from Favorites", favorite_memes_path(meme_id: @meme.id), method: :delete) %>
-          </div>
+        <% if current_user %>
+          <% if current_user.favorite_memes.exists?(@meme.id) %>
+            <div class="card-action">
+              <%= link_to( "Remove from Favorites", favorite_memes_path(meme_id: @meme.id), method: :delete) %>
+            </div>
+            <% else %>
+            <div class="card-action">
+              <%= link_to( "Add to Favorites", favorite_memes_path(meme_id: @meme.id), method: :post) %>
+            </div>
+            <% end %>
         <% end %>
         <div class="card-action">
           <% if signed_in? && current_user.id ==  @meme.user_id %>
