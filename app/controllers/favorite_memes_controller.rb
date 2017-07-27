@@ -2,7 +2,7 @@ class FavoriteMemesController < ApplicationController
   before_action :set_meme
   def create
     if Favorite.create(favorited: @meme, user: current_user)
-      redirect_to @meme
+      redirect_to current_user
       flash[:error] = "You favorited that meme"
     else
       redirect_to @meme
