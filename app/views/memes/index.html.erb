@@ -12,7 +12,10 @@
                 <%= link_to("View Meme", meme_path(meme)) %>
               </div>
               <div class="card-action">
-                <%= link_to( meme.user.username, user_path(meme.user)) %>
+              Posted by  <%= link_to( meme.user.username, user_path(meme.user)) %>
+              </div>
+              <div class="card-action">
+              Posted by  <%= link_to( "Add to Favorites", favorite_memes_path(meme_id: meme.id), method: :post) %>
               </div>
               <div class="card-action">
                 Posted at <%= meme.created_at.strftime('%c') %>
