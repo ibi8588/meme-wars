@@ -13,7 +13,7 @@ class FavoriteMemesController < ApplicationController
 
   def destroy
     Favorite.where(favorited_id: @meme.id, user_id: current_user.id).first.destroy
-    redirect_to @meme
+    redirect_to current_user
   end
 
   private

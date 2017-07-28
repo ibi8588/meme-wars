@@ -6,7 +6,7 @@
                 <%= image_tag src=meme.image %>
               </div>
               <div class="card-content">
-                <p><%= meme.title %><%=  meme.id %></p>
+                <p><%= meme.title %></p>
               </div>
               <div class="card-action">
                 <%= link_to("View Meme", meme_path(meme)) %>
@@ -32,6 +32,6 @@
             </div>
           </div>
         </div>
-<% end %>
+  <% end %>
 <%=  page_entries_info @meme %>
 <%= will_paginate @meme %>

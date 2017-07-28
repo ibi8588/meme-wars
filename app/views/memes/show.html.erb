@@ -6,7 +6,7 @@
           <%= image_tag src=@meme.image %>
         </div>
         <div class="card-content">
-          <p><%= @meme.title %><%=  @meme.id %></p>
+          <p><%= @meme.title %></p>
         </div>
         <div class="card-action">
           Posted by  <%= link_to( @meme.user.username, user_path(@meme.user)) %>
