@@ -14,11 +14,11 @@
         <% if current_user %>
           <% if current_user.favorite_memes.exists?(@meme.id) %>
             <div class="card-action">
-              <%= link_to( "Remove from Favorites", favorite_memes_path(@meme.id), method: :destroy) %>
+              <%= link_to( "Remove from Favorites", favorite_memes_path(@meme), method: :destroy) %>
             </div>
             <% else %>
             <div class="card-action">
-            <%= link_to( "Add to Favorites", favorite_memes_path(@meme.id), method: :post) %>
+            <%= link_to( "Add to Favorites", favorite_memes_path(meme_id: @meme), method: :post) %>
             </div>
             <% end %>
         <% end %>
