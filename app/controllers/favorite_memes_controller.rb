@@ -1,4 +1,5 @@
 class FavoriteMemesController < ApplicationController
+
   before_action :set_meme
   def create
     if Favorite.create(favorited: @meme, user: current_user)

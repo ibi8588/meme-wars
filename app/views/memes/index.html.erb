@@ -6,7 +6,7 @@
                 <%= image_tag src=meme.image %>
               </div>
               <div class="card-content">
-                <p><%= meme.title %></p>
+                <p><%= meme.title %><%=  meme.id %></p>
               </div>
               <div class="card-action">
                 <%= link_to("View Meme", meme_path(meme)) %>
@@ -15,13 +15,14 @@
               Posted by  <%= link_to( meme.user.username, user_path(meme.user)) %>
               </div>
               <% if current_user %>
-                <% if current_user.favorite_memes.exists?(meme.id) %>
+                <% fav = current_user.favorites.find_by(favorited_id: meme.id) %>
+                <% if fav %>
                   <div class="card-action">
-                    <%= link_to( "Remove from Favorites", favorite_memes_path(meme_id: meme.id), method: :delete) %>
+                    <%= link_to( "Remove from Favorites", favorite_meme_path(meme.id), method: :delete) %>
                   </div>
                   <% else %>
                   <div class="card-action">
-                    <%= link_to( "Add to Favorites", favorite_memes_path(meme_id: meme.id), method: :post) %>
+                    <%= link_to( "Add to Favorites", favorite_memes_path(meme_id: meme), method: :post) %>
                   </div>
                   <% end %>
               <% end %>
