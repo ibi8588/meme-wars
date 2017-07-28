@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   resources :favorite_memes, only: [:create, :destroy]
 
+  get "auth/facebook/callback", to: "sessions#create"
+  get "auth/failure", to: redirect('/')
+
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
