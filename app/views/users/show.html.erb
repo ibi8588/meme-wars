@@ -26,7 +26,7 @@
           <% end %>
       <% end %>
       <div class="card-action">
-        <%= button_to "Edit Meme", edit_meme_path, method: "get", action: "edit", class: "btn" %><br>
+        <%= button_to "Edit Meme", edit_meme_path(meme), method: "get", action: "edit", class: "btn" %><br>
         <%= button_to "Delete Meme", "/memes/#{meme.id}", method: "delete", action: "destroy", class: "btn",  data: {confirm: "Are you sure you want to delete this awesome meme?"} %>
       </div>
       </div>
