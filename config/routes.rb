@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   root to: "memes#index"
   resources :memes do
     member do
-      put "like" => "meme#vote"
+      post "like" => "memes#vote"
     end
   end
 end

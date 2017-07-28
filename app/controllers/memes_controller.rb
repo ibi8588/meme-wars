@@ -37,6 +37,7 @@ class MemesController < ApplicationController
   end
 
   def vote
+    @meme = Meme.find(params[:id])
     if !current_user.liked? @meme
       @meme.liked_by current_user
     elsif current_user.liked? @meme
