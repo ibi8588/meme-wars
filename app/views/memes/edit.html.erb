@@ -1,7 +1,23 @@
 <h1>Edit Meme</h1>
 
 <%= form_for @meme do |form| %>
-Title: <%= form.text_area :title%> <br>
-Image: <%= form.file_field :image %> <br>
-<%= form.submit "Post Meme" %>
+<div class="row">
+    <div class="row">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">description</i>
+        <%= form.label :title %>
+        <%= form.text_field :title, type: 'text', placeholder: "title" %>
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="row">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">image</i>
+        <%= form.file_field :image %>
+      </div>
+    </div>
+</div>
+<%= form.hidden_field :user_id, :value => "#{current_user.id}" %>
+<%= form.submit "Post Meme", class: 'btn'%><br>
 <% end %>
