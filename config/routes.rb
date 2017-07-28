@@ -15,5 +15,9 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "memes#index"
-  resources :memes
+  resources :memes do
+    member do
+      put "like" => "meme#vote"
+    end
+  end
 end
