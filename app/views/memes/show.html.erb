@@ -22,6 +22,17 @@
             </div>
             <% end %>
         <% end %>
+        <%= link_to like_meme_path(@meme), class: "like-btn", method: :post, remote: :true do %>
+        <div>
+          <span><p><i class="material-icons prefix thumb-up">thumb_up</i></p></span>
+        </div>
+        <% end %>
+        <span class="likes-count"><%= @meme.get_upvotes.size %></span>
+        <div class="card-action">
+          Posted at <%= @meme.created_at.strftime('%c') %>
+        </div>
+        <%= social_share_button_tag(@meme.title) %>
+      </div>
         <div class="card-action">
           <% if signed_in? && current_user.id ==  @meme.user_id %>
           <%= button_to "Edit Meme", edit_meme_path, method: "get", action: "edit", class: "btn" %><br>
