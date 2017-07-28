@@ -12,4 +12,7 @@
       <br><%= link_to t(".sign_in"), sign_in_path %><br>
     </div>
   <% end %>
+  <div class="facebook-sign-in">
+    <%= link_to "Sign up with Facebook", "https://www.facebook.com/v2.10/dialog/oauth?client_id=#{Rails.application.secrets.facebook_app_id}&redirect_uri=#{ auth_facebook_callback_url }", class: "btn" %>
+  </div>
 </div>
