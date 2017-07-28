@@ -1,4 +1,5 @@
 class MemesController < ApplicationController
+  respond_to :js
   def index
     @meme = Meme.all.paginate(:page => params[:page], :per_page => 10).order('created_at DESC')
   end
@@ -33,6 +34,16 @@ class MemesController < ApplicationController
 
   def edit
     @meme = Meme.find(params[:id])
+  end
+
+  def vote
+    @meme = Meme.find(params[:id])
+    if !current_user.liked? @meme
+      @meme.liked_by current_user
+    elsif current_user.liked? @meme
+      @meme.unliked_by current_user
+    end
+
   end
 
   def update
