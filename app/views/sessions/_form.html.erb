@@ -15,9 +15,9 @@
         <br><%= form.submit class: 'btn'%><br>
         <div class="input-field col s6">
           <% if Clearance.configuration.allow_sign_up? %>
-            <br><%= link_to t(".sign_up"), sign_up_path %><br>
+            <br><%= link_to t(".sign_up"), sign_up_path, class: 'btn' %><br>
           <% end %>
-          <br><%= link_to t(".forgot_password"), new_password_path %><br>
+          <br><%= link_to t(".forgot_password"), new_password_path, class: 'btn' %><br>
         </div>
       </div>
     </form>
