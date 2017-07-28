@@ -37,7 +37,7 @@ gem "figaro"
 gem 'will_paginate', '~> 3.1.0'
 gem 'social-share-button'
 gem 'acts_as_votable', '~> 0.10.0'
-
+gem 'responders'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

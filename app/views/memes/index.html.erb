@@ -27,6 +27,7 @@
                   <% end %>
               <% end %>
               <div class="card-action">
+                <%= link_to like_meme_path(@meme), class: "like-btn", method: :put, remote: :true %>
                 Posted at <%= meme.created_at.strftime('%c') %>
               </div>
               <%= social_share_button_tag(meme.title) %>
