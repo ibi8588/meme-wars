@@ -29,6 +29,7 @@
               <div class="card-action">
                 Posted at <%= meme.created_at.strftime('%c') %>
               </div>
+              <%= social_share_button_tag(meme.title) %>
             </div>
           </div>
         </div>
