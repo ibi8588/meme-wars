@@ -35,6 +35,7 @@ gem 'materialize-sass'
 gem 'jquery-rails'
 gem "figaro"
 gem 'will_paginate', '~> 3.1.0'
+gem 'social-share-button'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
