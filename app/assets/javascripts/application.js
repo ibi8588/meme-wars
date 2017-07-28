@@ -15,6 +15,7 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+//= require social-share-button
 $( document ).on('turbolinks:load', function() {
   $(".button-collapse").sideNav();
 });
