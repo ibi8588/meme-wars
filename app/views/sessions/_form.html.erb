@@ -19,6 +19,9 @@
           <% end %>
           <br><%= link_to t(".forgot_password"), new_password_path, class: 'btn' %>
         </div>
+        <div class="facebook-sign-in">
+          <br><%= link_to "Sign up with Facebook", "https://www.facebook.com/v2.10/dialog/oauth?client_id=#{Rails.application.secrets.facebook_app_id}&redirect_uri=#{ auth_facebook_callback_url }", class: "btn" %>
+        </div>
       </div>
     </form>
   </div>
