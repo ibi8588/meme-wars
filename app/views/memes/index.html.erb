@@ -1,7 +1,7 @@
 <% @meme.each do |meme| %>
         <div class="row">
-          <div class="col s12 m7">
-            <div class="card">
+          <div class="col s12 m7 offset-m3">
+            <div class="card hoverable">
               <div class="card-image">
                 <%= image_tag src=meme.image %>
               </div>
@@ -21,14 +21,16 @@
                     <%= link_to( "Remove from Favorites", favorite_meme_path(meme.id), method: :delete) %>
                   </div>
                   <% else %>
-                  <div class="card-action">
-                    <%= link_to( "Add to Favorites", favorite_memes_path(meme_id: meme), method: :post) %>
-                  </div>
+                    <%= link_to favorite_memes_path(meme_id: meme), method: :post do %>
+                    <div class="card-action">
+                      <span><p><i class="material-icons prefix favorite">favorite</i>Faovrite</p></span>
+                    </div>
+                    <% end %>
                   <% end %>
               <% end %>
               <%= link_to like_meme_path(meme), class: "like-btn", method: :post, remote: :true do %>
               <div>
-                <span><p><i class="material-icons prefix thumb-up">thumb_up</i></p></span>
+                <span><p><i class="material-icons prefix thumb-up">thumb_up</i>Like</p></span>
               </div>
               <% end %>
               <span class="likes-count"><%= meme.get_upvotes.size %></span>
