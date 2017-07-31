@@ -8,27 +8,28 @@
         <p><%= meme.title %></p>
       </div>
       <div class="card-action">
-        Posted by  <%= link_to( meme.user.username, user_path(meme.user)) %>
+        Posted by
+        <%= link_to( meme.user.username, user_path(meme.user)) %>
       </div>
       <% if current_user %>
-        <% fav = current_user.favorites.find_by(favorited_id: meme.id) %>
-        <% if fav %>
-          <div class="card-action">
-            <%= link_to( "Remove from Favorites", favorite_meme_path(meme.id), method: :delete) %>
-          </div>
-          <% else %>
-          <div class="card-action">
-            <%= link_to( "Add to Favorites", favorite_memes_path(meme_id: meme), method: :post) %>
-          </div>
-          <% end %>
+      <% fav = current_user.favorites.find_by(favorited_id: meme.id) %>
+      <% if fav %>
+      <div class="card-action">
+        <%= link_to( "Remove from Favorites", favorite_meme_path(meme.id), method: :delete) %>
+      </div>
+    <% else %>
+      <div class="card-action">
+        <%= link_to( "Add to Favorites", favorite_memes_path(meme_id: meme), method: :post) %>
+      </div>
       <% end %>
-    <% if signed_in? && current_user.id ==  meme.user_id %>
+      <% end %>
+      <% if signed_in? && current_user.id ==  meme.user_id %>
       <div class="card-action">
         <%= button_to "Edit Meme", edit_meme_path(meme), method: "get", action: "edit", class: "btn" %><br>
         <%= button_to "Delete Meme", "/memes/#{meme.id}", method: "delete", action: "destroy", class: "btn",  data: {confirm: "Are you sure you want to delete this awesome meme?"} %>
       </div>
       <% end %>
-      </div>
     </div>
   </div>
+</div>
 </div>
