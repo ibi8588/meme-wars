@@ -19,7 +19,7 @@ Used for uploading images onto the server. Easy to use and simple to integrate i
 https://github.com/thoughtbot/paperclip
 
 ## Materialize
-CSS Freamework used throughout the project. MAkes stuff look good!
+CSS Freamework used throughout the project. Makes stuff look good!
 http://materializecss.com/
 
 ## Figaro
