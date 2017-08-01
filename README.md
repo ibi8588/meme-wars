@@ -46,7 +46,9 @@ https://github.com/mkdynamic/omniauth-facebook
 
 # Additional Stretch Goals
 
-Create a thread of memes so that users can respond to meme posts with their own meme posts
+Create a thread of memes so that users can respond to meme posts with their own meme posts.
+
+Create on site messaging so that users can send messages to one another.
 
 Create a canvas interface so that users can upload an image, and the canvas can allow them to write text onto the template image. This will allow users to create memes form their own images on site.
 
