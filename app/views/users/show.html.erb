@@ -1,7 +1,7 @@
 <div class="account-welcome">
   <span class="welcome-span">Welcome, <%= @user.username %></span>
 </div>
-<h2>Meme Posts</h2>
+<%= image_tag('meme-posts.png', class: "meme-posts-image") %>
 <% @user.memes.each do |meme| %>
 <div class="row">
   <div class="col s12 m7">

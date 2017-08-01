@@ -12,15 +12,26 @@
           Posted by  <%= link_to( @meme.user.username, user_path(@meme.user)) %>
         </div>
         <% if current_user %>
-          <% if current_user.favorite_memes.exists?(@meme.id) %>
+          <% fav = current_user.favorites.find_by(favorited_id: @meme.id) %>
+            <% if fav %>
+              <%= link_to favorite_meme_path(@meme.id), method: :delete do %>
+              <div class="card-action">
+                <span>
+                  <p>
+                    <i class="material-icons prefix unfavorite">favorite_border</i>Remove From Favorites</p>
+                </span>
+              </div>
+              <% end %>
+          <% else %>
+            <%= link_to favorite_memes_path(meme_id: @meme), method: :post do %>
             <div class="card-action">
-              <%= link_to( "Remove from Favorites", favorite_memes_path(@meme), method: :destroy) %>
-            </div>
-            <% else %>
-            <div class="card-action">
-            <%= link_to( "Add to Favorites", favorite_memes_path(meme_id: @meme), method: :post) %>
+              <span>
+                <p>
+                  <i class="material-icons prefix favorite">favorite</i>Favorite</p>
+              </span>
             </div>
             <% end %>
+          <% end %>
         <% end %>
         <%= link_to like_meme_path(@meme), class: "like-btn", method: :post, remote: :true do %>
         <div>

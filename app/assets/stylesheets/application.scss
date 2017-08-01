@@ -20,6 +20,12 @@ header {
     font-weight: 600;
 }
 
-.favorite-meme-image {
-  width: 550px;
+.favorite-meme-image, .meme-posts-image {
+  width: 560px;
+}
+
+.new-meme-image{
+  width: 500px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
