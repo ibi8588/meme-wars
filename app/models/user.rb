@@ -11,7 +11,7 @@ class User < ApplicationRecord
     user
   end
 
-  EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+  EMAIL_REGEX = /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/
 
   validates :username, :presence => true, :uniqueness => true, :length => { :in => 3..20 }
 
