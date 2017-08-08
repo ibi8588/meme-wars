@@ -17,16 +17,26 @@
         <%= link_to( meme.user.username, user_path(meme.user)) %>
       </div>
       <% if current_user %>
-      <% fav = current_user.favorites.find_by(favorited_id: meme.id) %>
-      <% if fav %>
-      <div class="card-action">
-        <%= link_to( "Remove from Favorites", favorite_meme_path(meme.id), method: :delete) %>
-      </div>
-    <% else %>
-      <div class="card-action">
-        <%= link_to( "Add to Favorites", favorite_memes_path(meme_id: meme), method: :post) %>
-      </div>
-      <% end %>
+        <% fav = current_user.favorites.find_by(favorited_id: meme.id) %>
+          <% if fav %>
+            <%= link_to favorite_meme_path(meme.id), method: :delete do %>
+            <div class="card-action">
+              <span>
+                <p>
+                  <i class="material-icons prefix unfavorite">favorite_border</i>Remove From Favorites</p>
+              </span>
+            </div>
+            <% end %>
+        <% else %>
+          <%= link_to favorite_memes_path(meme_id: meme), method: :post do %>
+          <div class="card-action">
+            <span>
+              <p>
+                <i class="material-icons prefix favorite">favorite</i>Favorite</p>
+            </span>
+          </div>
+          <% end %>
+        <% end %>
       <% end %>
       <% if signed_in? && current_user.id ==  meme.user_id %>
       <div class="card-action">
@@ -57,16 +67,26 @@
       <%= link_to( meme.user.username, user_path(meme.user)) %>
     </div>
     <% if current_user %>
-    <% fav = current_user.favorites.find_by(favorited_id: meme.id) %>
-    <% if fav %>
-    <div class="card-action">
-      <%= link_to( "Remove from Favorites", favorite_meme_path(meme.id), method: :delete) %>
-    </div>
-  <% else %>
-    <div class="card-action">
-      <%= link_to( "Add to Favorites", favorite_memes_path(meme_id: meme), method: :post) %>
-    </div>
-    <% end %>
+      <% fav = current_user.favorites.find_by(favorited_id: meme.id) %>
+        <% if fav %>
+          <%= link_to favorite_meme_path(meme.id), method: :delete do %>
+          <div class="card-action">
+            <span>
+              <p>
+                <i class="material-icons prefix unfavorite">favorite_border</i>Remove From Favorites</p>
+            </span>
+          </div>
+          <% end %>
+      <% else %>
+        <%= link_to favorite_memes_path(meme_id: meme), method: :post do %>
+        <div class="card-action">
+          <span>
+            <p>
+              <i class="material-icons prefix favorite">favorite</i>Favorite</p>
+          </span>
+        </div>
+        <% end %>
+      <% end %>
     <% end %>
     <div class="card-action">
       <% if signed_in? && current_user.id ==  meme.user_id %>
